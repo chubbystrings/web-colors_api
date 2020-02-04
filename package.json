@@ -4,6 +4,7 @@
   "description": "Api for html web colors",
   "main": "server.js",
   "scripts": {
+    "test2": "mocha --timeout 10000",
     "test": "./node_modules/.bin/env-cmd -f ./config/test.env mocha --timeout 10000",
     "start": "node server.js",
     "dev": "./node_modules/.bin/env-cmd -f ./config/dev.env nodemon src/server.js -e js,hbs"
