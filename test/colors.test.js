@@ -6,7 +6,7 @@ const app = require('../src/app');
 const { expect } = chai;
 
 describe('colors test', () => {
-  it('should return random colors', async () => {
+  it('should return colors (random)', async () => {
     const colorData = await request(app)
       .get('/api/v1/colors')
       .expect(200);
@@ -14,7 +14,7 @@ describe('colors test', () => {
     expect(colorData.body.data).to.be.a('array');
   });
 
-  it('should return colors if searched with  type name', async () => {
+  it('should return colors if searched with type name', async () => {
     const colorData = await request(app)
       .get('/api/v1/colors/color?type=name&value=gol&showing=0')
       .expect(200);
