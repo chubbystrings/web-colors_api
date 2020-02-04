@@ -11,7 +11,7 @@ addons:
 deploy:
   provider: heroku
   app: webcolors-api-staging
-   on:
+  on:
     repo: chubbystrings/web-colors_api
   skip_cleanup: true
   api_key:
