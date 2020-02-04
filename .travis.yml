@@ -1,0 +1,22 @@
+language: node_js
+node_js: stable
+services:
+- postgresql
+addons:
+  postgresql: '10'
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+deploy:
+  provider: heroku
+  app: webcolors-api-staging
+   on:
+    repo: chubbystrings/web-colors_api
+  skip_cleanup: true
+  api_key:
+    secure: Zg4v1rA2T3xwKjuPhBSJRnRIymZsx2jHnTaK0guLnbG9hJYed8rACyhKm+57Ui5SePZFU4iMqFjRbdgimIXPBqwya49NCcVO/zUN6n3iY5op9UX+lr2o5wKx3L648eJHITnJeuykMcSgf9bm7UsIqvxSzw8aBEsuD6nZQkE4hExLJHrNwmvKA27v+4RaRcerqe+XWO7wUBj09Qkvx3d0/qCan9B0V5qfgl2pgCvXDN7m6A9Myu/DzRk9LJEG9EDtxdhtgPKOqNgpyiMiwIT5p3u6isJ2wRQlW8ALTX5LKhTtpWI2qHoIXf2lEmI+CfBKuqDfObuJZNcgY4jv5M9mWQb8h0y0Z4FZ1Oljq8EmVlEvibZmP9082n3Jpb+G/IQKd1AAw51n9au255U/OPAPtIZ+ul6HFO1DwMc8ppNXqF1XcuFLCWcsEOGR7VefTR2os0mepsLOS8ByvWHWHszg7fLhvAwFShrOPBZWaOR+e2D3pgrDt+iRcGWlwKnFs97YdMlDSdVE9VF94fMv4Pe8EFNHWg6Z7GoTThkihTKqdjr+OHSsp7Pt72oxeA7rhMOpzp2Clp1vcJnn7ezPczgTEqle7CIeZI36Y+7RXb35vqaW3oNCJwrvGvyqm1DXLnSUGyCHB9IIoBDq90MyOMERjpzACLiOFXexhkeP52bx2jk=
+install:
+- npm install
+script:
+- npm run test

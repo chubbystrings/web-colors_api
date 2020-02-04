@@ -1,8 +1,11 @@
+/* eslint-disable no-console */
 const http = require('http');
 const app = require('./app');
 
+// eslint-disable-next-line
+
 const server = http.createServer(app);
-console.log(process.env.PORT)
+console.log(process.env.PORT);
 
 const normalizePort = (val) => {
   const port = Number.parseInt(val, 10);
