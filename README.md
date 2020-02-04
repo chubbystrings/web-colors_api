@@ -1,4 +1,4 @@
-## <h2 align="justify">WEBCOLORS</h2>
+## WEBCOLORS
 
 webcolors api is an app that gives developers access to over 146 html colors that can be rendered on the web, the color name, the nex value and the rgb value. 
 
@@ -28,12 +28,12 @@ To get a specific color by name or hex or rgb:
 
 ## REQUEST
 
-(https://webcolors-api-product.herokuapp.com/api/v1/colors/color?type=name&value=gold&showing=0)
+https://webcolors-api-product.herokuapp.com/api/v1/colors/color?type=name&value=gold&showing=0
 
 ## COMPULSORY QUERY PARAMS
-type: specifies what color type you want
-value: specifies the name of color you want
-showing: This returns paginated values and increases by 7 for the next seven           available search options 
+- **type**: specifies what color type you want
+- **value**: specifies the name of color you want
+- **showing**: This returns paginated values and increases by 7 for the next                seven available search options 
 
 
 ## RESPONSE
