@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 const http = require('http');
+const logger = require('simple-node-logger').createSimpleLogger();
+
 const app = require('./app');
 
 // eslint-disable-next-line
 
 const server = http.createServer(app);
-console.log(process.env.PORT);
 
 const normalizePort = (val) => {
   const port = Number.parseInt(val, 10);
@@ -47,5 +48,5 @@ server.on('listening', () => {
   console.log(`Listening on ${bind}`);
 });
 
-server.listen(port);
+server.listen(port, () => logger.info(`webcolors api server is ready at port ${port}`));
 module.exports = server;

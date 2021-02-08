@@ -1,8 +1,15 @@
 const express = require('express');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const path = require('path');
+const rfs = require('rotating-file-stream'); // version 2.x
 const colorRoutes = require('./routes/color');
 
 const app = express();
+const requestLogStream = rfs.createStream('request.log', {
+  interval: '1d', // rotate daily
+  path: path.join(__dirname, 'logs'),
+});
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -12,6 +19,13 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(morgan('dev'));
+// setup the logger
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms', { stream: requestLogStream }));
+app.get('/', (req, res) => res.status(200).send({
+  message: 'webcolor api server is live',
+}));
 
 
 app.use('/api/v1/colors', colorRoutes);
