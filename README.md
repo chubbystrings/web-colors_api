@@ -101,7 +101,7 @@ https://webcolors-api-product.herokuapp.com/api/v1/colors/color?name=lightgolden
 
 ## ERROR RESPONSE EXAMPLE
 
-``
+```
 code: 401
 "status": "error",
     "message": {
@@ -109,6 +109,25 @@ code: 401
     },
     
 ```
+
+## Project setup
+```
+npm install
+```
+
+### hot-reloads for development
+```
+npm run dev
+```
+
+###  for production
+```
+npm run start
+```
+
+### Test Api using Swagger 
+
+https://webcolors-api-product.herokuapp.com/api-docs
 
 
 *Created with love by chubbyCode Happy coding*

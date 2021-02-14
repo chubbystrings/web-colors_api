@@ -1,8 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
+const swaggerUi = require('swagger-ui-express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const rfs = require('rotating-file-stream'); // version 2.x
+const swaggerDocs = require('../swaggerDocs');
 const colorRoutes = require('./routes/color');
 
 const app = express();
@@ -18,6 +20,12 @@ app.use((req, res, next) => {
   next();
 });
 
+const options = {
+  customCss: '.swagger-ui .topbar { display: none }',
+};
+
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs, options, { explorer: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
