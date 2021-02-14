@@ -20,7 +20,9 @@
     "morgan": "^1.10.0",
     "pg": "^8.3.0",
     "rotating-file-stream": "^2.1.4",
-    "simple-node-logger": "^18.12.24"
+    "simple-node-logger": "^18.12.24",
+    "swagger-jsdoc": "^6.0.2",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "chai": "^4.2.0",
